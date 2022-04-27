@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/naaav"
+    app:startDestination="@id/fragmentStLF">
+
+    <fragment
+        android:id="@+id/fragmentGameLF"
+        android:name="com.lykki.frykti.fragLF.FragmentGameLF"
+        android:label="fragment_game_l"
+        tools:layout="@layout/fragment_game_l" />
+    <fragment
+        android:id="@+id/fragmentLoginLF"
+        android:name="com.lykki.frykti.fragLF.FragmentLoginLF"
+        android:label="fragment_login_l"
+        tools:layout="@layout/fragment_login_l" >
+        <action
+            android:id="@+id/action_fragmentLoginLF_to_fragmentGameLF"
+            app:destination="@id/fragmentGameLF" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentStLF"
+        android:name="com.lykki.frykti.fragLF.FragmentStLF"
+        android:label="fragment_st_l"
+        tools:layout="@layout/fragment_st_l" >
+        <action
+            android:id="@+id/action_fragmentStLF_to_fragmentBtLB"
+            app:destination="@id/fragmentBtLB" />
+        <action
+            android:id="@+id/action_fragmentStLF_to_fragmentWebLF"
+            app:destination="@id/fragmentWebLF" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentBtLB"
+        android:name="com.lykki.frykti.fragLF.FragmentBtLB"
+        android:label="fragment_bt_l_b"
+        tools:layout="@layout/fragment_bt_l_b" >
+        <action
+            android:id="@+id/action_fragmentBtLB_to_fragmentLoginLF"
+            app:destination="@id/fragmentLoginLF" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentWebLF"
+        android:name="com.lykki.frykti.fragLF.FragmentWebLF"
+        android:label="fragment_web_l"
+        tools:layout="@layout/fragment_web_l" />
+</navigation>

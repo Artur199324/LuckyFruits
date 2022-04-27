@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragLF.FragmentStLF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgg">
+
+        <kr.co.prnd.StepProgressBar
+            android:id="@+id/step"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:max="10"
+            app:step="0"
+            app:stepDoneColor="#4A3EC1"
+            app:stepMargin="8dp"
+            app:stepUndoneColor="#dedede"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textViewINOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#BF4B9A03"
+            android:text="Connect to the Internet"
+            android:textColor="#F6F6F6"
+            android:textSize="30sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/step"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.widget.Button
+            android:id="@+id/buttonInOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/button"
+            android:text="OK"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/textViewINOk"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/textViewINOk"
+            app:layout_constraintTop_toBottomOf="@+id/textViewINOk" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
