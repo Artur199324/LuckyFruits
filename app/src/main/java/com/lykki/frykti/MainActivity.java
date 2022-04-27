@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
     public static String cfvd;
     public static String pacLP;
     static ConLF conLF;
+    int jj = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,30 +172,44 @@ public class MainActivity extends AppCompatActivity {
 
                 conLF = viewMLF.connLP();
 
-                new Handler().postDelayed(new Runnable() {
+
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("weq", conLF.status);
-                        Log.d("weq", conLF.url);
-                        Log.d("weq", conLF.fbToken);
-                        Log.d("weq", conLF.fbId);
+                        if (!conLF.status.equals("s")){
+                            Log.d("weq", conLF.status);
+                            Log.d("weq", conLF.url);
+                            Log.d("weq", conLF.fbToken);
+                            Log.d("weq", conLF.fbId);
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                FacebookSdk.setApplicationId(conLF.fbId);
-                                FacebookSdk.setAdvertiserIDCollectionEnabled(true);
-                                FacebookSdk.sdkInitialize(getApplicationContext());
-                                FacebookSdk.fullyInitialize();
-                                FacebookSdk.setAutoInitEnabled(true);
-                                FacebookSdk.setAutoLogAppEventsEnabled(true);
-                                viewMLF.deepLinkLF(MainActivity.this);
-                                loadingLF();
-                            }
-                        });
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    FacebookSdk.setApplicationId(conLF.fbId);
+                                    FacebookSdk.setAdvertiserIDCollectionEnabled(true);
+                                    FacebookSdk.sdkInitialize(getApplicationContext());
+                                    FacebookSdk.fullyInitialize();
+                                    FacebookSdk.setAutoInitEnabled(true);
+                                    FacebookSdk.setAutoLogAppEventsEnabled(true);
+                                    viewMLF.deepLinkLF(MainActivity.this);
+                                    loadingLF();
+                                }
+                            });
+                            jj = 1;
+                        }
+
+                        if (jj != 1){
+                            handler.postDelayed(this::run,1);
+                        }
 
                     }
-                }, 2000);
+                });
+
+
+
+
+
 
 
             }
@@ -245,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("weq","Deep"+ cfvd);
 
         } else {
-            if (conLF.status.equals("0")) {
+            if (conLF.status.equals("1")) {
 
                 navControllerLF.navigate(R.id.fragmentBtLB);
                 Log.d("weq","game");

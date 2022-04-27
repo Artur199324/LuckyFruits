@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ConLF {
 
-    public String status;
+    public String status = "s";
     public String url;
     public String fbToken;
     public String fbId;
